@@ -1,0 +1,28 @@
+package com.itwill.persistence;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.itwillbs.domain.BoardVO;
+
+public class BoardDAOImpl implements BoardDAO {
+
+	
+	// sqlSession 객체를 주입
+	private SqlSession sqlsession;
+	
+	
+	private static final String namespace = "com.itwillbs.mapper.BoardMapper";
+	
+	
+	@Override
+	public void create(BoardVO vo) throws Exception {
+		
+		// mapper 호출 객체 필요
+		
+		System.out.println("DAO : 글쓰기 실행!");
+		sqlsession.insert(namespace+".createboard",vo);
+		
+		
+	}
+
+}

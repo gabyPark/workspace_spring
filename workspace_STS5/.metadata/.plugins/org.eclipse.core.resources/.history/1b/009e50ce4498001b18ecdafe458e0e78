@@ -1,0 +1,8 @@
+package com.itwillbs.service;
+
+public interface BoardService {
+
+	// 글쓰기 동작 
+	
+	
+}

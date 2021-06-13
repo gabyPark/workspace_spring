@@ -1,0 +1,50 @@
+package com.itwillbs.persistence;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import com.itwillbs.domain.MemberVO;
+
+// @Repository : 해당 파일을 DAO로 사용하겠다 => 스프링한테 전달
+@Repository
+public class MemberDAOImpl implements MemberDAO {
+
+	// 디비 연결하는 객체가 필요함 -> 의존
+	@Inject
+	private SqlSession sqlSession;
+	
+	
+	// 사용할 mapper의 위치
+	private static final String namespace 
+						= "com.itwillbs.mapper.MemberMapper";
+	
+	
+	@Override
+	public String getTime() {
+		System.out.println("DAO : 디비연결 정보 : "+sqlSession);
+		
+		// selectOne(sql) => 결과 1개를 리턴
+		System.out.println("DAO : getTime() 호출!");
+		return sqlSession.selectOne(namespace+".getTime");
+	}
+
+
+	@Override
+	public void insertMember(MemberVO vo) {
+		System.out.println("DAO : 회원가입 메서드 실행!!");
+		
+		sqlSession.insert(namespace+".insertMember", vo);
+		
+		System.out.println("DAO : 회원가입 메서드 종료!!");
+	}
+	
+	@Override
+	public MemberVO readMember(String id) throws Exception {
+
+		System.out.println("@@@@ DAO : readMember(id) 실행");
+		
+		return sqlSession.selectOne(namespace+".",id);
+	}
+}

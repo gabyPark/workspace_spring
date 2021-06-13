@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="SpringMVC1"/>
+<aop-project name="Test"/>
+<aop-project name="TestSpring"/>
+<aop-project name="SpringBoard"/>
+</aop-reference-model>

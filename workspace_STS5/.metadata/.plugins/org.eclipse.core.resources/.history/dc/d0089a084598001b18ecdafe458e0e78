@@ -1,0 +1,18 @@
+package com.itwillbs.service;
+
+import org.springframework.stereotype.Service;
+
+import com.itwillbs.domain.BoardVO;
+
+@Service
+public class BoardServiceImpl implements BoardService {
+
+	@Override
+	public void regist(BoardVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+        
+        
+<beans>
+<!-- 객체 생성 -->
+  <bean id="mdao" class="com.itwill.MemberDAOImpl"></bean>
+  
+
+<!-- 값을 수정하는 객체 -->
+<bean id="mdaoSet" class="com.itwill.MemberDAOImpl">
+
+  <!-- 속성 : set() 메서드 호출(해당 대상에 set메서드 필요)-->
+  <property name="id" >
+    <value>아이티윌</value>
+  </property>
+  
+  <property name="pw" value="1234" />
+</bean>
+
+
+<!-- 생성자 사용 객체 (bean) 생성 -->
+<bean id="mdaoC1" class="com.itwill.MemberDAOImpl">
+  <constructor-arg value="itwill"/>
+</bean>
+
+<bean id="mdaoC2" class="com.itwill.MemberDAOImpl">
+  <constructor-arg value="itwill"/>
+  <constructor-arg value="123123"/>
+</bean>
+
+<!-- set() 레퍼런스 -->
+<bean id="mdaoC3" class="com.itwill.MemberDAOImpl">
+	<property name="board" ref="b"></property>
+</bean>
+
+<bean id="b" class="com.itwill.Board"></bean>
+
+
+</beans>
